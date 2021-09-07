@@ -10,7 +10,6 @@ import  VueResource  from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.use(ElementUI) //使用elementUI
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
