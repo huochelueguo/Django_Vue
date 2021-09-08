@@ -7,10 +7,13 @@ import router from './router'
 import ElementUI from 'element-ui' //element-ui的全部组件
 import 'element-ui/lib/theme-chalk/index.css'//element-ui的css
 import  VueResource  from 'vue-resource'
-Vue.use(VueResource)
-
+import axios from "axios";
+// Vue.use(VueResource)
 Vue.use(ElementUI) //使用elementUI
 Vue.config.productionTip = false
+
+Vue.prototype.$http = axios;
+// axios.defaults.baseURL= 'http://127.0.0.1:8000/'
 
 /* eslint-disable no-new */
 new Vue({
