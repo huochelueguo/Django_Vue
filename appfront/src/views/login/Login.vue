@@ -47,44 +47,26 @@ export default {
       let {name, password} = this.ruleForm
       console.log(name)
       console.log(password)
-      this.$http.get('http://127.0.0.1:8000/login_action?username=sunze&password=123456')
-        .then((response) => {
-          var res = JSON.parse(response.bodyText)
-          if (res.error_num == 0) {
-            this.showBooks()
-          } else {
-            this.$message.error('新增书籍失败，请重试')
-            console.log(res['msg'])
-          }
-        })
+      this.$http.get('login_action',{params:{
+          username:name,
+          password:password
+        }
+      }).then((response) => {
+        console.log(response)
+        this.$router.push('/home')
+          // var res = JSON.parse(response.bodyText)
+          // if (res.error_num == 0) {
+          //   this.showBooks()
+          // } else {
+          //   this.$message.error('新增书籍失败，请重试')
+          //   console.log(res['msg'])
+          // }
+        }).catch(err => {
+          console.log(err)
+          alert(err)
+      })
     },
-      // // 检查是否拿到了正确的需要验证的form
-      // this.$refs[formName].validate((valid) =>{
-      //   if (valid){
-      //     const _this = this
-      //     // axios 发送请求
-      //     axios.get("/login_action？",{
-      //         username: name,
-      //         password: password
-      //     }).then(
-      //       function (resp) {
-      //         const flag = resp.data.request['flag']
-      //         if (flag == 'yes'){
-      //             console.log(resp)
-      //           // console.log(resp.data.request['flag'])
-      //           // 请求成功后进行跳转 由于this 指向问题 加上了_this
-      //           // _this.$router.push("/index")
-      //         }else {
-      //           alert("错误登录")
-      //         }
-      //       }
-      //     )
-      //     // 开始用的 axios 发送请求
-      //     // console.log(this.ruleForm)
-      //   }else {
-      //     alert("验证错误")
-      //   }
-      // })
+
 
 
     // 输入框重置

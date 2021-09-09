@@ -49,5 +49,5 @@ def login_action(request):
         request.session['user'] = u_name
         return HttpResponse("成功")
     else:
-        return HttpResponse('失败')
+        return HttpResponse('用户名或密码错误，登录失败')
 

@@ -13,7 +13,7 @@ Vue.use(ElementUI) //使用elementUI
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios;
-// axios.defaults.baseURL= 'http://127.0.0.1:8000/'
+axios.defaults.baseURL= 'http://127.0.0.1:8000/'
 
 /* eslint-disable no-new */
 new Vue({
